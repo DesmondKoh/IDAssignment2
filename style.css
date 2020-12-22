@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+body{
+    background-color: black;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+header, section{
+    overflow: hidden;
+}
+
+header{
+    height: 100%;
+    background-image:url(images/background.png) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;  
+}
+
+header .navbar-brand{
+    padding-top: 1.2rem;
+    font-size: 30px;
+    color: whitesmoke;
+    font-family: 'Bungee', cursive;
+}
+
+header a{
+    font-family: 'Open Sans', sans-serif;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+header .nav-item{
+    padding: 0.9rem;
+    padding-top: 1.2rem;
+}
+
+header .row .col-md-6{
+    padding: 22vmin 1vmin;
+    padding-bottom: 35vmin;
+}
+
+.col-md-6 h4{
+    font-family: 'Open Sans', sans-serif;
+    color: whitesmoke;
+    font-size: 22px;
+    text-shadow: 2px 2px 4px black
+}
+
+.col-md-6 h1{
+    font-family: 'Open Sans', sans-serif;
+    color: whitesmoke;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.col-md-6 h1 span{
+    font-weight: bold;
+}
+
+
+.series h3{
+    color: white;
+}
+
+.btn{
+    margin-top: 10px;
+}
+
+.movies h6{
+    margin-top: 10px;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.movies img{
+    margin-top: 30px;
+}
