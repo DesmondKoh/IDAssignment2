@@ -80,6 +80,11 @@ header .row .col-md-6{
     font-size: 15px;
 }
 
+.movies h4{
+    color: rgb(148, 148, 148);
+    font-size: 14px;
+}
+
 .movies img{
     margin-top: 30px;
 }
