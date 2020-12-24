@@ -6,14 +6,6 @@ body{
     background-color: black;
 }
 
-*{
-    box-sizing: border-box;
-}
-
-header, section{
-    overflow: hidden;
-}
-
 header{
     height: 100%;
     background-image:url(images/background.png) ;
@@ -24,7 +16,7 @@ header{
 
 header .navbar-brand{
     padding-top: 1.2rem;
-    font-size: 30px;
+    font-size: 25px;
     color: whitesmoke;
     font-family: 'Bungee', cursive;
 }
@@ -32,10 +24,13 @@ header .navbar-brand{
 header a{
     font-family: 'Open Sans', sans-serif;
     color: whitesmoke;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 20px;
 }
 
+header #navbarPadding{
+    margin-left:22rem;
+}
 
 header .nav-item{
     padding: 0.9rem;
@@ -43,8 +38,8 @@ header .nav-item{
 }
 
 header .row .col-md-6{
-    padding: 22vmin 1vmin;
-    padding-bottom: 35vmin;
+    padding: 35vmin 1vmin;
+    padding-bottom: 40vmin;
 }
 
 .col-md-6 h4{
@@ -70,7 +65,7 @@ header .row .col-md-6{
     color: white;
 }
 
-.btn{
+#header_button{
     margin-top: 10px;
 }
 
@@ -87,4 +82,32 @@ header .row .col-md-6{
 
 .movies img{
     margin-top: 30px;
+    transition: .1.5s ease;   
 }
+
+.movies img:hover{   
+    opacity: 0.5;
+}
+
+.search_header{
+    margin-top: 30px;
+}
+
+#search{
+    width: 250px;
+    height: 40px;
+}
+
+footer{
+    margin-top: 10rem;
+ 
+}
+
+/*Search Page*/
+#results{
+    margin-top: 12rem;
+    color: whitesmoke;
+    font-size: 22px;
+}
+
+

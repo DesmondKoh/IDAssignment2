@@ -88,3 +88,11 @@ $(document).ready( function() {
     })
 
 });
+
+
+$("#search").keypress(function() {
+    if (event.key === "Enter") {
+        window.open('search.html?search=' + $('#search').val());
+    }
+});
+
