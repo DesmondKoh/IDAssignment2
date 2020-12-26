@@ -25,6 +25,7 @@ Details of the movie clicked will be shown using a modal.
 # **Credits**
 ### Media Used
 IMAGES
+
 [background.png] https://www.justwatch.com/nl/tv-series/fast-and-furious-spy-racers
 
 ### API Used
