@@ -14,6 +14,7 @@ header{
     background-size: cover;  
 }
 
+
 header .navbar-brand{
     padding-top: 1.2rem;
     font-size: 25px;
@@ -69,6 +70,13 @@ header .row .col-md-6{
     margin-top: 10px;
 }
 
+.pagination li a{
+    background-color: black;
+    color: white;
+    border-color: black;
+    font-size: 20px;
+}
+
 .movies h6{
     margin-top: 10px;
     color: whitesmoke;
@@ -100,7 +108,6 @@ header .row .col-md-6{
 
 footer{
     margin-top: 10rem;
- 
 }
 
 /*Search Page*/
@@ -110,4 +117,70 @@ footer{
     font-size: 22px;
 }
 
+/*Modal*/
+.modal-content{
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(26, 26, 26, 0.85);
+    background-blend-mode: darken;
+    height: 650px;
+    padding-right: 40px;
+}
 
+.info-layout{
+    margin-top: 30px;
+}
+.modal img{
+    width: 435px;
+    height: 650px;
+    margin-left: -15px;
+}
+
+.modal #genre{
+    margin-top: 20px;
+    color: #C5C5C5;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.modal #title{
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.modal #rating{
+    color: #C5C5C5;
+    font-weight: lighter;
+}
+
+.modal #overview-text{
+    margin-top: 55px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.modal #overview{
+    color: whitesmoke;
+    font-weight: lighter;
+}
+
+.modal #release{
+    color: whitesmoke;
+    font-weight: lighter;
+    margin-top: 55px;
+}
+
+.modal #trailer{
+    margin-top: 50px; 
+}
+
+.modal .video{
+    margin-left: -18px;
+}
+
+.modal #trailer_not_avail{
+    width: 1157px;
+    height: 650px;
+    margin: 0px;
+}
