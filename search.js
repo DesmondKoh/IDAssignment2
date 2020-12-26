@@ -1,4 +1,14 @@
 $(document).ready(function(){
+    checkURLParameter();
+    searchMovie();
+});
+
+
+// +---------------------------
+// | Check for Search Parameter
+// +---------------------------
+
+function checkURLParameter(){
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -7,7 +17,6 @@ $(document).ready(function(){
     
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
-    
             if (sParameterName[0] === sParam) {
                 return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
             }
@@ -15,12 +24,13 @@ $(document).ready(function(){
     };
     var search = getUrlParameter("search");
     $("#search").val(search); 
-
-    searchMovie();
-});
+}
 
 
-/*Search for movies*/
+// +------------------------
+// | Search Movies
+// +------------------------
+
 function searchMovie(){ 
     $("#search").keyup(function() {
         var search = $('#search').val();
@@ -69,20 +79,13 @@ function searchMovie(){
 }
 
 
-/*Disable "Enter" key*/
-$("#search").keypress(function(event) { 
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == "13") {
-        event.preventDefault(); 
-    }
-});
+// +------------------------
+// | Show Movie Details
+// +------------------------
 
-/*Show movie details*/
-$("body").on("click", "img", function(){ 
+function showMovieDetail(id){
     $('.video').html('<img id="trailer_not_avail" src="images/trailer_not_available.png">');
-    var id = this.id;
     var video = 0;
-
 
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data1){  
         var first_video = false;
@@ -107,22 +110,29 @@ $("body").on("click", "img", function(){
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name)  
         }); 
+
         $('#poster').html("<img src='" + poster_path + "'>")
         $('#genre').html(genre_name.toString());
         $('#title').html(data.original_title);
         $('#rating').html(data.vote_average + "/10 (" + data.vote_count + " votes)")
         $('#release').html("Release Date: " + data.release_date)
         $('#overview').html(data.overview)
-        
-        if(video != null){
-            $('#trailer').html('<button type="button" class="btn btn-outline-light trailer-button" id="' + id + '">Watch Trailer</button>');
-        }   
-    
+        $('#trailer').html('<button type="button" class="btn btn-outline-light trailer-button" id="' + id + '">Watch Trailer</button>');
     });
     $('#infoModal').modal('show');
+}
+
+
+// +------------------------
+// | Element Clicks
+// +------------------------
+
+// | Image Button (Search Results)
+$("body").on("click", "img", function(){ 
+    showMovieDetail(this.id);
 });
 
-
+// | Watch Trailer Button (Movie Details)
 $("#trailer").on("click", "button", function(){  
     var id = $(".modal button").attr("id");
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data1){  
@@ -137,7 +147,14 @@ $("#trailer").on("click", "button", function(){
 });
     
 
+// +------------------------
+// | Others
+// +------------------------
 
-
-
-
+// | Disable "Enter" Key
+$("#search").keypress(function(event) { 
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == "13") {
+        event.preventDefault(); 
+    }
+});

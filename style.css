@@ -6,6 +6,25 @@ body{
     background-color: black;
 }
 
+
+/* +------------------------
+   | Search Textbox Styling
+   +------------------------ */
+
+   .search_header{
+    margin-top: 30px;
+}
+
+#search{
+    width: 250px;
+    height: 40px;
+}
+
+
+/* +------------------------
+   | Header Styling
+   +------------------------ */
+
 header{
     height: 100%;
     background-image:url(images/background.png) ;
@@ -13,7 +32,6 @@ header{
     background-position: center;
     background-size: cover;  
 }
-
 
 header .navbar-brand{
     padding-top: 1.2rem;
@@ -61,14 +79,55 @@ header .row .col-md-6{
     font-weight: bold;
 }
 
-
 .series h3{
     color: white;
 }
 
-#header_button{
-    margin-top: 10px;
+
+/* +------------------------
+   | Carousel Styling
+   +------------------------ */
+
+.carousel{
+    margin-top: 50px;
+    margin-bottom: 80px;
 }
+
+.carousel img{
+    filter: brightness(50%)
+}
+
+.carousel-caption{
+    text-align: left;
+    font-size: 20%;
+    position: absolute;
+    bottom: 29%;
+    right: 40%;
+    z-index: 20;
+}
+
+.carousel h4{
+    font-weight: lighter;
+    color: #C5C5C5;
+    margin-bottom: 10px;
+}
+
+.carousel h1{
+    color: whitesmoke;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.carousel h5{
+    margin-top: 80px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+
+
+/* +------------------------
+   | Pagination Styling
+   +------------------------ */
 
 .pagination li a{
     background-color: black;
@@ -76,6 +135,11 @@ header .row .col-md-6{
     border-color: black;
     font-size: 20px;
 }
+
+
+/* +-------------------------
+   | "Popular" Movies Styling
+   +------------------------- */
 
 .movies h6{
     margin-top: 10px;
@@ -97,27 +161,11 @@ header .row .col-md-6{
     opacity: 0.5;
 }
 
-.search_header{
-    margin-top: 30px;
-}
 
-#search{
-    width: 250px;
-    height: 40px;
-}
+/* +------------------------
+   | Modal Styling
+   +------------------------ */
 
-footer{
-    margin-top: 10rem;
-}
-
-/*Search Page*/
-#results{
-    margin-top: 12rem;
-    color: whitesmoke;
-    font-size: 22px;
-}
-
-/*Modal*/
 .modal-content{
     background-repeat: no-repeat; 
     background-position: center;
@@ -155,7 +203,7 @@ footer{
 }
 
 .modal #overview-text{
-    margin-top: 55px;
+    margin-top: 45px;
     color: whitesmoke;
     font-weight: bold;
 }
@@ -168,11 +216,11 @@ footer{
 .modal #release{
     color: whitesmoke;
     font-weight: lighter;
-    margin-top: 55px;
+    margin-top: 45px;
 }
 
 .modal #trailer{
-    margin-top: 50px; 
+    margin-top: 45px; 
 }
 
 .modal .video{
@@ -183,4 +231,26 @@ footer{
     width: 1157px;
     height: 650px;
     margin: 0px;
+}
+
+
+/* +------------------------
+   | Others
+   +------------------------ */
+   
+/* | Text Styling */
+#header_button{
+    margin-top: 10px;
+}
+
+/* | Footer Styling */
+footer{
+    margin-top: 10rem;
+}
+
+/* | Search Page */
+#results{
+    margin-top: 12rem;
+    color: whitesmoke;
+    font-size: 22px;
 }
