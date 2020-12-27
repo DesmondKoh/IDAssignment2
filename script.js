@@ -218,10 +218,3 @@ $("header").on("click", "#search-button", function(){
 $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop() > 850);
 });
-   
-
-
-
-
-	
-
