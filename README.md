@@ -30,3 +30,6 @@ IMAGES
 
 ### API Used
 [TMDB API] https://developers.themoviedb.org/
+
+### Codes from External Source
+[Disable Enter Key] https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1

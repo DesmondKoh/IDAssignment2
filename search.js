@@ -1,3 +1,5 @@
+var api_key = "6377432a6f5b68b2dd2593d879d1ff91";
+
 $(document).ready(function(){
     checkURLParameter();
     searchMovie();
@@ -38,7 +40,7 @@ function searchMovie(){
         if(search != ""){ $('#results').html("Searching for " + search + "...") }
         else{ $('#results').empty(); }
         for(var i = 1; i < 4; i++){
-            $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US&query=" + search +"&page=" + i + "&include_adult=false", function(data){
+            $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=en-US&query=" + search +"&page=" + i + "&include_adult=false", function(data){
                 $.each(data.results, function() {  
                     var poster_path;
                     var original_title = this.original_title;  
@@ -56,7 +58,7 @@ function searchMovie(){
                     for( var i = 0; i < this.genre_ids.length; i++){
                         genre_id.push(this.genre_ids[i])}
 
-                    $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data1){
+                    $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
                         $.each(data1.genres, function() {        
                             for(var i = 0; i < genre_id.length; i++){
                                 if(genre_id[i] == this.id){  
@@ -64,7 +66,7 @@ function searchMovie(){
                                 }      
                             }  
                         }); 
-                        $('.movies').append(`<div class="col-md-2 col-sm-6">
+                        $('.movies').append(`<div class="col-4 col-md-2">
                                             <div class="row">
                                                 <img src=` + poster_path +` id="` + movie_id + `"> 
                                                 <h6>` + original_title + `</h6>
@@ -87,7 +89,7 @@ function showMovieDetail(id){
     $('.video').html('<img id="trailer_not_avail" src="images/trailer_not_available.png">');
     var video = 0;
 
-    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data1){  
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
         var first_video = false;
         $.each(data1.results, function() {
             video = this.key;        
@@ -96,7 +98,7 @@ function showMovieDetail(id){
         });
     });
 
-    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data){  
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){  
         var genre_name = [];
         var poster_path;
 
@@ -135,7 +137,7 @@ $("body").on("click", "img", function(){
 // | Watch Trailer Button (Movie Details)
 $("#trailer").on("click", "button", function(){  
     var id = $(".modal button").attr("id");
-    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=6377432a6f5b68b2dd2593d879d1ff91&language=en-US", function(data1){  
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
         var first_video = false;
         $.each(data1.results, function() {
             $('.video').html('<iframe width="1157" height="650" src="https://www.youtube.com/embed/' + this.key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')

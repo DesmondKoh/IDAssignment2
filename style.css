@@ -8,18 +8,51 @@ body{
 
 
 /* +------------------------
-   | Search Textbox Styling
+   | Navbar Styling
    +------------------------ */
-
-   .search_header{
-    margin-top: 30px;
+header a{
+    font-family: 'Open Sans', sans-serif;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 20px;
 }
 
-#search{
-    width: 250px;
-    height: 40px;
+header .navbar-brand{
+    font-size: 25px;
+    color: whitesmoke;
+    font-family: 'Bungee', cursive;
 }
 
+header .btn{
+    margin-left: -5px;
+}
+
+.navbar{
+    padding-top: 2.3rem;
+    margin: -14px;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.nav-item{
+    margin-right: 30px;
+}
+
+.bg-light{
+    background-color: transparent !important;
+}
+
+.bg-light.scrolled{
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    padding-bottom: 20px;
+}
+
+.bg-search{
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-bottom: 20px;
+}
 
 /* +------------------------
    | Header Styling
@@ -31,29 +64,6 @@ header{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;  
-}
-
-header .navbar-brand{
-    padding-top: 1.2rem;
-    font-size: 25px;
-    color: whitesmoke;
-    font-family: 'Bungee', cursive;
-}
-
-header a{
-    font-family: 'Open Sans', sans-serif;
-    color: whitesmoke;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-header #navbarPadding{
-    margin-left:22rem;
-}
-
-header .nav-item{
-    padding: 0.9rem;
-    padding-top: 1.2rem;
 }
 
 header .row .col-md-6{
@@ -120,7 +130,7 @@ header .row .col-md-6{
 
 .carousel h5{
     margin-top: 80px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: whitesmoke;
 }
 
@@ -254,3 +264,288 @@ footer{
     color: whitesmoke;
     font-size: 22px;
 }
+
+/* +------------------------
+   | Responsive
+   +------------------------ */
+
+@media screen and (max-width:1300px)
+{
+    .carousel-caption{
+        bottom: 27%;
+    }
+
+    #upcomingCarousel h1{
+        font-size: 45px;
+    }
+
+    #upcomingCarousel h4, #upcomingCarousel h5{
+        font-size: 20px;
+    }  
+}
+
+@media screen and (max-width:1200px)
+{
+    .carousel-caption{
+        bottom: 27%;
+    }
+
+    #upcomingCarousel h1{
+        font-size: 35px;
+    }
+
+    #upcomingCarousel h4, #upcomingCarousel h5{
+        font-size: 15px;
+    }  
+
+    .modal-content{
+        height: 500px;
+    }
+
+    .info-layout{
+        padding-left: 50px;
+    }
+
+    .modal img{
+        height: 500px;
+        width: auto;
+    }
+
+    .modal #genre{
+        margin-top: 15px;
+        font-size: 15px;
+    }
+    
+    .modal #title{
+        font-size: 30px;
+    }
+    
+    .modal #rating{
+        font-size: 15px;
+    }
+    
+    .modal #overview-text{
+        font-size: 15px;
+        margin-top: 25px;
+    }
+    
+    .modal #overview{
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    
+    .modal #release{
+        font-size: 15px;
+        margin-top: 25px;
+    }
+    
+    .modal #trailer button{
+        margin-top: -45px; 
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1000px)
+{
+
+    .carousel-caption{
+        bottom: 20%;
+    }
+
+    #upcomingCarousel h1{
+        font-size: 29px;
+    }
+
+    #upcomingCarousel h4, #upcomingCarousel h5{
+        font-size: 15px;
+    }  
+
+    .modal-content{
+        max-height: 400px;
+    }   
+
+    .modal-dialog{
+        max-width: 700px;
+    }
+
+    .info-layout{
+        padding-left: 20px;
+    }
+
+    .modal img{
+        height: 400px;
+        width: auto;
+    }
+
+    .modal #genre{
+        margin-top: 10px;
+        font-size: 10px;
+    }
+    
+    .modal #title{
+        font-size: 25px;
+    }
+    
+    .modal #rating{
+        font-size: 10px;
+    }
+    
+    .modal #overview-text{
+        font-size: 15px;
+        margin-top: 25px;
+    }
+    
+    .modal #overview{
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    
+    .modal #release{
+        font-size: 10px;
+        margin-top: 25px;
+    }
+    
+    .modal #trailer button{
+        font-size: 8px; 
+        margin-top: -45px;
+    }
+}
+
+@media screen and (max-width:800px)
+{ 
+    #upcomingCarousel h1{
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    #upcomingCarousel h4, #upcomingCarousel button{
+        font-size: 10px;
+        margin-bottom: 3px;
+    }  
+
+    #upcomingCarousel h5{
+        font-size: 10px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .modal-dialog{
+        max-width: 500px;
+    }
+
+    .modal-content{
+        max-height: 100%;
+    }   
+
+    .info-layout{
+        margin-left: 12px;
+    }
+
+    .modal img{
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 200px;
+        width: auto;
+    }
+
+    .modal #genre{
+        margin-top: -10px;
+    }
+    
+    .modal #title{
+        margin-top: -6px;
+    }
+    
+    .modal #overview-text{
+        font-size: 12px;
+        margin-top: 15px;
+    }
+    
+    .modal #overview{
+        margin-top: -5px;
+    }
+    
+    .modal #release{
+        font-size: 10px;
+        margin-top: 15px;
+    }
+    
+    .modal #trailer button{
+        font-size: 8px; 
+        margin-top: -45px;
+    }
+}
+
+@media screen and (max-width:500px)
+{
+    .carousel-caption{
+        bottom: 10%;
+    }
+
+    #upcomingCarousel h1{
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    #upcomingCarousel h4{
+        font-size: 12px;
+        margin-bottom: 3px;
+    }  
+
+    #upcomingCarousel h5{
+        font-size: 12px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    #upcomingCarousel button{
+        font-size: 5px;
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width:400px)
+{
+    .carousel-caption{  
+        top: 2%;
+    }
+
+    #upcomingCarousel h1{
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    #upcomingCarousel h4{
+        font-size: 10px;
+        margin-bottom: 3px;
+    }  
+
+    #upcomingCarousel h5{
+        font-size: 10px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    #upcomingCarousel button{
+        font-size: 6px;
+        padding: 6px;
+    }
+
+    .col-md-6 h4{
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    
+    .col-md-6 h1{
+        font-size: 40px;
+        margin-left: 30px;
+    }
+
+    #header_button{
+        margin-left: 30px;
+    } 
+}
+
+
+
+
