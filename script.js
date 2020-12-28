@@ -187,7 +187,7 @@ $("#trailer").on("click", "button", function(){
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
         var first_video = false;
         $.each(data1.results, function() {
-            $('.video').html('<iframe width="1157" height="650" src="https://www.youtube.com/embed/' + this.key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+            $('.video').html('<iframe id="video-size" width="1157" height="650" src="https://www.youtube.com/embed/' + this.key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
             first_video = true;
             return (first_video !== true)
         });
@@ -218,3 +218,10 @@ $("header").on("click", "#search-button", function(){
 $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop() > 850);
 });
+   
+
+
+
+
+	
+
