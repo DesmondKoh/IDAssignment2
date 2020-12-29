@@ -1,0 +1,420 @@
+/* +------------------------
+   | Responsive
+   +------------------------ */
+
+   @media screen and (max-width:1300px)
+   {
+       .carousel-caption{
+           bottom: 27%;
+       }
+   
+       #upcomingCarousel h1{
+           font-size: 45px;
+       }
+   
+       #upcomingCarousel h4, #upcomingCarousel h5{
+           font-size: 20px;
+       }  
+   
+       #details-overview{
+           margin-left: 40px
+       }
+   
+       
+   }
+   
+   @media screen and (max-width:1200px)
+   {
+       .carousel-caption{
+           bottom: 27%;
+       }
+   
+       #upcomingCarousel h1{
+           font-size: 38px;
+       }
+   
+       #upcomingCarousel h4, #upcomingCarousel h5{
+           font-size: 20px;
+       }  
+   
+       .modal-content{
+           height: 500px;
+       }
+   
+       .info-layout{
+           padding-left: 50px;
+       }
+   
+       .modal img{
+           height: 500px;
+           width: auto;
+       }
+   
+       .modal #genre{
+           margin-top: 15px;
+           font-size: 15px;
+       }
+       
+       .modal #title{
+           font-size: 30px;
+       }
+       
+       .modal #rating{
+           font-size: 15px;
+       }
+       
+       .modal #overview-text{
+           font-size: 15px;
+           margin-top: 25px;
+       }
+       
+       .modal #overview{
+           font-size: 12px;
+           margin-top: 10px;
+       }
+       
+       .modal #release{
+           font-size: 15px;
+           margin-top: 25px;
+       }
+       
+       .modal #more-info button{
+           margin-top: -45px; 
+           font-size: 12px;
+       }
+   
+       #details-overview{
+           margin-left: 100px
+       }
+   
+       #video-size{  
+           margin-left: -20px;
+           width: 857px;
+           height: 500px; 
+       }
+       
+       .modal #trailer_not_avail{
+           width: 857px;
+           height: 500px;
+           margin: 0px;
+       }
+   
+       #poster{
+           width: 230px !important;
+           height: auto;
+       }
+   }
+   
+   @media screen and (max-width:1024px)
+   {
+       .carousel-caption{
+           bottom: 20%;
+           right: 0%;
+       }
+   
+       #upcomingCarousel h1{
+           font-size: 31px;
+       }
+   
+       #upcomingCarousel h4{
+           font-size: 18px;
+       }  
+   
+       #upcomingCarousel h5{
+           font-size:18px;
+           margin-top: 60px;
+       }
+   
+       #upcomingCarousel button{
+           font-size: 15px;
+           padding: 9px;
+       }
+   
+       .modal-content{
+           max-height: 500px;
+       }   
+   
+       .modal-dialog{
+           max-width: 900px;
+       }
+   
+       .info-layout{
+           padding-left: 10px;
+       }
+   
+       .modal img{
+           height: 500px;
+           width: auto;
+       }
+   
+       .modal #genre{
+           font-size: 17px;
+           margin-top: 10px;     
+       }
+       
+       .modal #title{
+           font-size: 32px;
+       }
+       
+       .modal #rating{
+           font-size: 17px;
+       }
+       
+       .modal #overview-text{
+           font-size: 22px;
+           margin-top: 25px;
+       }
+       
+       .modal #overview{
+           font-size: 17px;
+           margin-top: 10px;
+       }
+       
+       .modal #release{
+           font-size: 15px;
+           margin-top: 25px;
+       }
+       
+       .modal #more-info button{
+           font-size: 15px; 
+           margin-top: -45px;
+       }
+   
+       #details-overview{
+           margin-left: 110px;
+       }
+   
+       #video-size{
+           margin-left: 1px;
+           width: 720px;
+           height: 420px;
+       }
+   }
+   @media screen and (max-width: 934px){
+       #details-overview{
+           margin-left: 130px;
+       }
+   }
+       
+   @media screen and (max-width:767px)
+   { 
+       .carousel-caption{
+          bottom: 20%;
+       }
+   
+       #upcomingCarousel h1{
+           font-size: 30px;
+           margin-bottom: 10px;
+       }
+   
+       #upcomingCarousel h4{
+           font-size: 16px;
+           margin-bottom: 3px;
+       }  
+   
+       #upcomingCarousel h5{
+           font-size: 16px;
+           margin-top: 50px;
+           margin-bottom: 10px;
+       }
+   
+       #upcomingCarousel button{
+           font-size: 16px;
+       }
+   
+       .modal-dialog{
+           max-width: 700px;
+       }
+   
+       .modal-content{
+           max-height: 100%;
+       }   
+   
+       .info-layout{
+           margin-left: -30px;
+       }
+   
+       .modal img{
+           margin-top: 20px;
+           margin-left: 20px;
+           height: 300px;
+           width: auto;
+       }
+   
+       .modal #genre{
+           margin-top: -10px;
+       }
+       
+       .modal #title{
+           margin-top: -6px;
+       }
+       
+       .modal #overview-text{
+           font-size: 12px;
+           margin-top: 15px;
+       }
+       
+       .modal #overview{
+           margin-top: -5px;
+       }
+       
+       .modal #release{
+           font-size: 14px;
+           margin-top: 15px;
+       }
+       
+       .modal #more-info button{
+           font-size: 14px; 
+           margin-top: -45px;
+       }
+   
+       #details-overview{
+           margin-top: 30px;
+           margin-left: 0px;
+       }
+       
+       #details-rating{
+           text-align: left !important;
+       }
+   
+       #video-size{
+           margin-left: 1px;
+           width: 540px;
+           height: 320px;
+       }
+   
+       
+   }
+   
+   @media screen and (max-width:614px)
+   {
+       
+       .info-layout{
+           margin-left: 20px;
+       }
+   
+       #details-genre{
+           margin-top: 200px  !important;
+           margin-left: 10px;
+           font-size: 20px !important;
+       }
+       #details-title{
+           margin-left: 10px;
+           font-size: 35px !important;
+       }
+   
+       #details-release,#details-rating{
+           font-size: 20px;
+       }
+   
+       #poster{
+           margin-top: 20px;
+       }
+   
+       #details-rating{
+           text-align: left;
+       }
+       #details-overview{
+           margin: 15px 0px 0px 0px;
+       }
+   
+       #video-size{
+           width: 380px;
+           height: 210px; 
+       }
+   }
+   
+   @media screen and (max-width:414px)
+   {
+       .bg-light{
+           background-color: rgba(0, 0, 0, 0.6) !important;
+           padding-bottom: 20px;
+       }
+   
+       .carousel-caption{  
+           top: 2%;
+           right: 0%;
+       }
+   
+       #upcomingCarousel h1{
+           font-size: 23px;
+           margin-bottom: 3px;
+       }
+   
+       #upcomingCarousel h4{
+           font-size: 13px;
+           margin-bottom: 3px;
+       }  
+   
+       #upcomingCarousel h5{
+           font-size: 13px;
+           margin-top: 30px;
+           margin-bottom: 10px;
+       }
+   
+       #upcomingCarousel button{
+           font-size: 10px;
+           padding: 5px;
+       }
+   
+       .col-md-6 h4{
+           font-size: 15px;
+           margin-left: 30px;
+       }
+       
+       .col-md-6 h1{
+           font-size: 40px;
+           margin-left: 30px;
+       }
+   
+       #header_button{
+           margin-left: 30px;
+       } 
+   
+       .info-layout{
+           margin-left: 23px;
+       }
+   
+       .modal-dialog{
+           margin-top: -60px;
+           max-width: auto;
+           max-height: auto;
+       }
+   
+       .modal img{
+           height: 200px;
+           width: auto;
+       }
+   
+       .modal #genre, .modal #rating, .modal #release, .modal #overview, .modal #overview-text, .modal #more-info button{
+           font-size: 13px;
+       }
+       
+       .modal #title{
+           font-size: 30px;
+       }
+   
+       #details-genre{
+           margin-top: 200px  !important;
+           margin-left: 10px;
+           font-size: 20px !important;
+       }
+       #details-title{
+           margin-left: 10px;
+           font-size: 35px !important;
+       }
+   
+       #details-release,#details-rating{
+           font-size: 20px;
+       }
+   
+       #video-size{  
+           width: 350px;
+           height: 210px; 
+       }
+   
+       #poster{
+           width: 200px !important;
+       }
+   }
+   

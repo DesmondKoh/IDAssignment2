@@ -21,7 +21,7 @@ function loadUpcoming(){
                 $('#title-' + top).html(this.original_title);
                 $('#rating-' + top).html(this.vote_average + "/10 (" + this.vote_count + " votes)");
                 $('#release-' + top).html("Release Date: " + this.release_date);   
-                $('#button-' + top).html('<button type="button" class="btn btn-outline-light trailer-button" id="' + this.id + '">View More</button>');
+                $('#button-' + top).html('<button type="button" class="btn btn-outline-light" id="' + this.id + '">View More</button>');
                 $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){   
                     $.each(data.genres, function() {
                         genre_name.push(" " + this.name)  
@@ -122,10 +122,9 @@ function showMovieDetail(id){
         $('#rating').html(data.vote_average + "/10 (" + data.vote_count + " votes)")
         $('#release').html("Release Date: " + data.release_date)
         $('#overview').html(data.overview)
-        $('#trailer').html('<button type="button" class="btn btn-outline-light trailer-button" id="' + id + '">Watch Trailer</button>');
+        $('#more-info').html('<button type="button" class="btn btn-outline-light" id="' + id + '">More info</button>');
     });
     $('#infoModal').modal('show');
-	
 }
 
 // +------------------------
@@ -181,18 +180,10 @@ $("body").on("click", "img", function(){
     showMovieDetail(this.id); 
 });
 
-// | Watch Trailer Button (Movie Details)
-$("#trailer").on("click", "button", function(){  
+// | More info Button (Movie Details)
+$("#more-info").on("click", "button", function(){  
     var id = $(".modal button").attr("id");
-    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
-        var first_video = false;
-        $.each(data1.results, function() {
-            $('.video').html('<iframe id="video-size" width="1157" height="650" src="https://www.youtube.com/embed/' + this.key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-            first_video = true;
-            return (first_video !== true)
-        });
-    });
-    $('#trailerModal').modal('show');
+    window.open("movieDetails.html?id=" + id);
 });
 
 
@@ -218,10 +209,3 @@ $("header").on("click", "#search-button", function(){
 $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop() > 850);
 });
-   
-
-
-
-
-	
-
