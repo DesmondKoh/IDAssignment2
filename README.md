@@ -1,9 +1,11 @@
+### Desmond Koh Chye Ang
+
 # **MovieHouse**
 ### Intent and Purpose
 The purpose of this website is to allow users to browse through movies. The website also show users the latest and popular movies as well as allow them to search for movies.
 
 # **Design Process**
-The first thing i want the user to see is a catchphrase that briefly describes the website.
+Users will be able to get a brief introduction on the website base on the header.
 
 
 # **Functions/Features Available**
@@ -24,12 +26,10 @@ Details of the movie clicked will be shown using a modal.
 
 # **Credits**
 ### Media Used
-IMAGES
-
-[background.png] https://www.justwatch.com/nl/tv-series/fast-and-furious-spy-racers
+* Header Background: https://www.justwatch.com/nl/tv-series/fast-and-furious-spy-racers
 
 ### API Used
-[TMDB API] https://developers.themoviedb.org/
+* TMDB API: https://developers.themoviedb.org/
 
 ### Codes from External Source
-[Disable Enter Key] https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
+* Disable "Enter" Key: https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
