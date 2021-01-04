@@ -5,7 +5,7 @@
 The purpose of this website is to allow users to browse through movies. The website also show users the latest and popular movies as well as allow them to search for movies.
 
 # **Design Process**
-Users will be able to get a brief introduction on the website base on the header.
+Users should be able to get a brief introduction on the website base on the header.
 
 
 # **Functions/Features Available**
@@ -21,7 +21,7 @@ User can search for movie.
 
 ### 4. Movie Details
 Details of the movie clicked will be shown using a modal.
-* Watch Trailer (User can watch trailer (if available) by click the "Watch Trailer" button at the bottom of the modal.)
+* Further infomation on the movie will be shown when user clicks the "More Info" button.
 
 
 # **Credits**
