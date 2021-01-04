@@ -42,7 +42,14 @@ function loadUpcoming(){
 function loadMovie(){
     var page = $("#page").val(); 
     var currLoc = page - 1; 
-    
+
+    if(page == 1){
+        $("#popular-movies-text").html("Popular Movies")
+    }
+    else{
+        $("#popular-movies-text").html("Popular Movies — " + page)
+    }
+
     for(var i = currLoc * 3 + 1; i < currLoc * 3 + 4; i++){
         $.getJSON("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + i, function(data){
             $.each(data.results, function() {  

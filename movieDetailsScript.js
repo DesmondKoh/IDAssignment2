@@ -2,9 +2,12 @@ var api_key = "6377432a6f5b68b2dd2593d879d1ff91";
 
 $(document).ready(function(){
     var id = checkURLParameter();
-    loadMovieDetail(id)
-    showVideo(id)
-    loadSimilarMovie(id)
+    loadMovieDetail(id);
+    showVideo(id);
+    loadCasts(id);
+    loadSimilarMovie(id);
+    $(".view-more-text").hide();
+    $(".view-less-text").hide();
 });
 
 function checkURLParameter(){
@@ -22,8 +25,7 @@ function checkURLParameter(){
         }
     };
     var id = getUrlParameter("id");
-    return id;
-    
+    return id; 
 }
 
 
@@ -32,7 +34,7 @@ function checkURLParameter(){
 // +------------------------
 
 function loadMovieDetail(id){
-    $('#video').html('<img id="trailer_not_avail" src="images/trailer_not_available.png">');
+    $('#video').html('<img id="video-size" src="images/trailer_not_available.png" width="887" height="500">');
     var video = 0;
 
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
@@ -83,6 +85,46 @@ function showVideo(id){
             return (first_video !== true)
         });
     });
+}
+
+// +------------------------
+// | Load Casts
+// +------------------------
+function loadCasts(id){
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/credits?api_key=" + api_key + "&language=en-US&page=1", function(data){
+        count = 1;
+        $.each(data.cast, function() {  
+            var profile_path;
+            if(this.profile_path == null){
+                profile_path = "'images/poster_not_available.png'"
+            }
+            else{
+                profile_path = "https://image.tmdb.org/t/p/original" + this.profile_path;
+            }
+
+            if(count < 13){
+                $('.casts').append(`<div class="col-4 col-md-2">
+                                    <div class="row">    
+                                        <img src=` + profile_path +` id="` + this.id + `"> 
+                                        <h6 id="cast-name">` + this.name + `</h6>
+                                        <h6 id="cast-character">` +  this.character + `</h6>                                  
+                                    </div>
+                                </div> `)  
+                count++;
+            }
+            else{
+                $(".view-more-text").show();
+                $('.casts-collapse').append(`<div class="col-4 col-md-2">
+                                    <div class="row">    
+                                        <img src=` + profile_path +` id="` + this.id + `"> 
+                                        <h6 id="cast-name">` + this.name + `</h6>
+                                        <h6 id="cast-character">` +  this.character + `</h6>                                  
+                                    </div>
+                                </div> `)  
+            }
+               
+        });
+    })          
 }
 
 
@@ -165,7 +207,7 @@ function showMovieDetail(id){
 // +------------------------
 
 // | Image Button (Search Results)
-$("body").on("click", "img", function(){ 
+$(".series").on("click", "img", function(){ 
     showMovieDetail(this.id);
 });
 
@@ -174,6 +216,16 @@ $("#more-info").on("click", "button", function(){
     var id = $(".modal button").attr("id");
     window.open("movieDetails.html?id=" + id);
 });
+
+$("#collapseCast").on("hidden.bs.collapse", function(){
+    $(".view-more-text").show();
+    $(".view-less-text").hide();
+})
+
+$("#collapseCast").on("show.bs.collapse", function(){
+    $(".view-less-text").show();
+    $(".view-more-text").hide();
+})
 
 // +------------------------
 // | Others

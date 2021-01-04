@@ -333,9 +333,50 @@ footer{
 }
 
 #details-text{
-    margin-top: 70px;
+    margin-top: 100px;
 }
 
 #video{
     margin-top: 30px;
+    margin-bottom: 200px;
+}
+
+#cast-name{
+    margin-top: 10px;
+    color: white;
+}
+
+#cast-character{
+    margin-bottom: 30px;
+    font-weight: lighter;
+    color: rgb(179, 179, 179);
+}
+
+.casts img, .casts-collapse img{
+    margin-top: 10px;
+}
+
+.series #details-text{
+    text-align: center;
+    font-weight: bold;
+}
+
+.view-more, .view-less{
+    text-align: center;
+}
+
+#arrow-img{
+    height: 20px;
+    width: auto;
+
+}
+
+.view-more-text, .view-less-text{   
+    color: white;
+    text-decoration: none;
+
+}
+
+.view-more-text:hover, .view-less-text:hover{
+    color: white;
 }
