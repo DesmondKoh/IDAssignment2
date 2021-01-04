@@ -224,6 +224,7 @@ header .row .col-md-6{
 .modal #overview{
     color: whitesmoke;
     font-weight: lighter;
+    font-size: 15px;
 }
 
 .modal #release{
@@ -271,6 +272,10 @@ footer{
 }
 
 
+/* +------------------------
+   | Details Styling
+   +------------------------ */
+
 .details-header{
     height: 100%;
     background-repeat: no-repeat !important;
@@ -296,11 +301,11 @@ footer{
     font-size: 70px;
     font-weight: bold;
 }
-
-#poster{
+#d-poster{
     width: 200px;
     height: auto;
 }
+
 
 #details-release, #details-rating, #details-overview-text{
     color: whitesmoke;
@@ -312,7 +317,7 @@ footer{
     text-align: right;
 }
 
-#details-overview, #details-release span, #details-rating span, #details-trailer{
+#details-overview, #details-release span, #details-rating span, #details-text{
     color: whitesmoke;
     font-weight: lighter;
 }
@@ -327,7 +332,7 @@ footer{
     width: 1280px;
 }
 
-#details-trailer{
+#details-text{
     margin-top: 70px;
 }
 

@@ -86,18 +86,6 @@ function searchMovie(){
 // +------------------------
 
 function showMovieDetail(id){
-    $('.video').html('<img id="trailer_not_avail" src="images/trailer_not_available.png">');
-    var video = 0;
-
-    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
-        var first_video = false;
-        $.each(data1.results, function() {
-            video = this.key;        
-            first_video = true;
-            return (first_video !== true)
-        });
-    });
-
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){  
         var genre_name = [];
         var poster_path;

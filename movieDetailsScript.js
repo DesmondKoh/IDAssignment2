@@ -1,7 +1,10 @@
 var api_key = "6377432a6f5b68b2dd2593d879d1ff91";
 
 $(document).ready(function(){
-    checkURLParameter();
+    var id = checkURLParameter();
+    loadMovieDetail(id)
+    showVideo(id)
+    loadSimilarMovie(id)
 });
 
 function checkURLParameter(){
@@ -19,16 +22,16 @@ function checkURLParameter(){
         }
     };
     var id = getUrlParameter("id");
-    showMovieDetail(id)
-    showVideo(id)
+    return id;
+    
 }
 
 
 // +------------------------
-// | Show Movie Details
+// | Load Movie Details
 // +------------------------
 
-function showMovieDetail(id){
+function loadMovieDetail(id){
     $('#video').html('<img id="trailer_not_avail" src="images/trailer_not_available.png">');
     var video = 0;
 
@@ -57,7 +60,7 @@ function showMovieDetail(id){
         }); 
 
         $('.details-header').css("background", "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 1) ), url(https://image.tmdb.org/t/p/original" + data.backdrop_path + ")")
-        $('#details-poster').html("<img id='poster' src='" + poster_path + "'>")
+        $('#details-poster').html("<img id='d-poster' src='" + poster_path + "'>")
         $('#details-genre').html(genre_name.toString());
         $('#details-title').html(data.original_title);
         $('#details-rating').html("<span id='font-light'>Movie rating: </span>" + data.vote_average + "/10 (" + data.vote_count + " votes)")
@@ -82,6 +85,95 @@ function showVideo(id){
     });
 }
 
+
+// +------------------------
+// | Load Similar Movies
+// +------------------------
+function loadSimilarMovie(id){
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/similar?api_key=" + api_key + "&language=en-US&page=1", function(data){
+        $.each(data.results, function() {  
+            var poster_path;
+            var original_title = this.original_title;  
+            var movie_id = this.id;
+            var genre_id = [];    
+            var genre_name = [];
+
+            if(this.poster_path == null){
+                poster_path = "'images/poster_not_available.png'"
+            }
+            else{
+                poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
+            }
+
+            for( var i = 0; i < this.genre_ids.length; i++){
+                genre_id.push(this.genre_ids[i])}
+
+            $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
+                $.each(data1.genres, function() {        
+                    for(var i = 0; i < genre_id.length; i++){
+                        if(genre_id[i] == this.id){  
+                            genre_name.push(" " + this.name);     
+                        }      
+                    }  
+                }); 
+                $('.movies').append(`<div class="col-4 col-md-2">
+                                    <div class="row">
+                                        <img src=` + poster_path +` id="` + movie_id + `"> 
+                                        <h6>` + original_title + `</h6>
+                                        <h4>` +  genre_name + `</h4>
+                                    </div>
+                                </div> `)   
+            });
+        });
+    })          
+}
+
+// +------------------------
+// | Show Movie Details
+// +------------------------
+
+function showMovieDetail(id){
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){  
+        var genre_name = [];
+        var poster_path;
+
+        if(data.poster_path == null){
+            poster_path = "images/poster_not_available.png"
+        }
+        else{
+            poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
+        }
+
+        $.each(data.genres, function() {     
+            genre_name.push(" " + this.name)  
+        }); 
+
+        $('#poster').html("<img src='" + poster_path + "'>")
+        $('#genre').html(genre_name.toString());
+        $('#title').html(data.original_title);
+        $('#rating').html(data.vote_average + "/10 (" + data.vote_count + " votes)")
+        $('#release').html("Release Date: " + data.release_date)
+        $('#overview').html(data.overview)
+        $('#more-info').html('<button type="button" class="btn btn-outline-light" id="' + id + '">More info</button>');
+    });
+    $('#infoModal').modal('show');
+}
+
+
+// +------------------------
+// | Element Clicks
+// +------------------------
+
+// | Image Button (Search Results)
+$("body").on("click", "img", function(){ 
+    showMovieDetail(this.id);
+});
+
+// | More info Button (Movie Details)
+$("#more-info").on("click", "button", function(){  
+    var id = $(".modal button").attr("id");
+    window.open("movieDetails.html?id=" + id);
+});
 
 // +------------------------
 // | Others
