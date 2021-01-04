@@ -17,7 +17,11 @@ header a{
     font-size: 20px;
 }
 
-header .navbar-brand{
+header a:hover{
+    color: rgb(218, 218, 218);
+}
+
+header .navbar-brand:hover, .navbar-brand{
     font-size: 25px;
     color: whitesmoke;
     font-family: 'Bungee', cursive;
@@ -101,7 +105,7 @@ header .row .col-md-6{
 
 .carousel{
     margin-top: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
 
 .carousel img{
@@ -189,7 +193,6 @@ header .row .col-md-6{
 
 .info-layout{
     margin-top: 30px;
-    
 }
 
 .modal img{
@@ -201,7 +204,6 @@ header .row .col-md-6{
 .modal #genre{
     margin-top: 20px;
     color: #C5C5C5;
-    font-size: 20px;
     font-weight: lighter;
 }
 
@@ -307,19 +309,22 @@ footer{
 }
 
 
-#details-release, #details-rating, #details-overview-text{
+#details-release, #details-rating, #details-overview-text, #details-status, #details-runtime{
     color: whitesmoke;
     font-weight: bold;
-
 }
 
 #details-rating{
     text-align: right;
 }
 
-#details-overview, #details-release span, #details-rating span, #details-text{
+#details-overview, #details-release span, #details-rating span, #details-text, #details-status span, #details-runtime span{
     color: whitesmoke;
-    font-weight: lighter;
+    font-weight: 100;
+}
+
+#details-runtime{
+    margin-bottom: 25px;
 }
 
 #line{
@@ -368,15 +373,28 @@ footer{
 #arrow-img{
     height: 20px;
     width: auto;
-
 }
 
 .view-more-text, .view-less-text{   
     color: white;
     text-decoration: none;
-
 }
 
 .view-more-text:hover, .view-less-text:hover{
     color: white;
+}
+
+.from-bottom{
+    grid-column: 3/4;
+    transform: translateX(50%);
+}
+
+.from-bottom{
+    transition: opacity 250ms ease-in, transform 400ms ease-in;
+    opacity: 0;
+}
+
+.from-bottom{
+    transform: translateX(0);
+    opacity: 1;
 }

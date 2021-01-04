@@ -51,23 +51,25 @@ function loadMovieDetail(id){
         var poster_path;
 
         if(data.poster_path == null){
-            poster_path = "images/poster_not_available.png"
+            poster_path = "images/poster_not_available.png";
         }
         else{
             poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
         }
 
         $.each(data.genres, function() {     
-            genre_name.push(" " + this.name)  
+            genre_name.push(" " + this.name);
         }); 
 
-        $('.details-header').css("background", "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 1) ), url(https://image.tmdb.org/t/p/original" + data.backdrop_path + ")")
-        $('#details-poster').html("<img id='d-poster' src='" + poster_path + "'>")
+        $('.details-header').css("background", "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 1) ), url(https://image.tmdb.org/t/p/original" + data.backdrop_path + ")");
+        $('#details-poster').html("<img id='d-poster' src='" + poster_path + "'>");
         $('#details-genre').html(genre_name.toString());
         $('#details-title').html(data.original_title);
-        $('#details-rating').html("<span id='font-light'>Movie rating: </span>" + data.vote_average + "/10 (" + data.vote_count + " votes)")
-        $('#details-release').html("<span id='font-light'>Release date: </span> " + data.release_date)
-        $('#details-overview').html(data.overview)
+        $('#details-rating').append(data.vote_average + "/10 (" + data.vote_count + " votes)");
+        $('#details-release').append(data.release_date);
+        $('#details-status').append(data.status);
+        $('#details-runtime').append(data.runtime + " minutes");
+        $('#details-overview').html(data.overview);
     });
 }
 
