@@ -17,12 +17,10 @@ function checkURLParameter(){
             sParameterName,
             i;
     
-        for (i = 0; i < sURLVariables.length; i++) {
+        for (i = 0; i < sURLVariables.length; i++)
             sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
+            if (sParameterName[0] === sParam) 
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);      
     };
     var search = getUrlParameter("search");
     $("#search").val(search); 
@@ -37,8 +35,10 @@ function searchMovie(){
     $("#search").keyup(function() {
         var search = $('#search').val();
         $('.movies').empty();
-        if(search != ""){ $('#results').html("Searching for " + search + "...") }
-        else{ $('#results').empty(); }
+
+        if (search != "") $('#results').html("Searching for " + search + "...") 
+        else $('#results').empty(); 
+
         for(var i = 1; i < 4; i++){
             $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=en-US&query=" + search +"&page=" + i + "&include_adult=false", function(data){
                 $.each(data.results, function() {  
@@ -48,23 +48,16 @@ function searchMovie(){
                     var genre_id = [];    
                     var genre_name = [];
 
-                    if(this.poster_path == null){
-                        poster_path = "'images/poster_not_available.png'"
-                    }
-                    else{
-                        poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
-                    }
+                    if(this.poster_path == null) poster_path = "'images/poster_not_available.png'"  
+                    else poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;                 
 
-                    for( var i = 0; i < this.genre_ids.length; i++){
-                        genre_id.push(this.genre_ids[i])}
+                    for(var i = 0; i < this.genre_ids.length; i++)
+                        genre_id.push(this.genre_ids[i])
 
                     $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
                         $.each(data1.genres, function() {        
-                            for(var i = 0; i < genre_id.length; i++){
-                                if(genre_id[i] == this.id){  
-                                    genre_name.push(" " + this.name);     
-                                }      
-                            }  
+                            for(var i = 0; i < genre_id.length; i++)
+                                if(genre_id[i] == this.id) genre_name.push(" " + this.name);                       
                         }); 
                         $('.movies').append(`<div class="col-4 col-md-2">
                                             <div class="row">
@@ -90,12 +83,8 @@ function showMovieDetail(id){
         var genre_name = [];
         var poster_path;
 
-        if(data.poster_path == null){
-            poster_path = "images/poster_not_available.png"
-        }
-        else{
-            poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
-        }
+        if(data.poster_path == null) poster_path = "images/poster_not_available.png"
+        else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
 
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name)  
@@ -136,7 +125,6 @@ $("#more-info").on("click", "button", function(){
 // | Disable "Enter" Key
 $("#search").keypress(function(event) { 
     var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == "13") {
-        event.preventDefault(); 
-    }
+    if (keycode == "13") event.preventDefault(); 
+
 });

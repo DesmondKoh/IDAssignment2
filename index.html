@@ -53,7 +53,6 @@
     </div>
 </header>
 <body>
-  
   <div class="container series" data-aos="fade-up">
     <h3 id="latest_text">Latest Movies</h3>
     <div id="upcomingCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -75,13 +74,13 @@
         </div>
         <div class="carousel-item" id="box-2">
           <div id="item-2"></div>
-           <div class="carousel-caption">
-              <h4 id="genre-2"></h4>
-              <h1 id="title-2"></h1>
-              <h4 id="rating-2"></h4>
-              <h5 id="release-2"></h5>
-              <div id="button-2"></div>
-            </div>
+          <div class="carousel-caption">
+            <h4 id="genre-2"></h4>
+            <h1 id="title-2"></h1>
+            <h4 id="rating-2"></h4>
+            <h5 id="release-2"></h5>
+            <div id="button-2"></div>
+          </div>
         </div>
         <div class="carousel-item" id="box-3">
           <div id="item-3"></div>
@@ -91,6 +90,7 @@
             <h4 id="rating-3"></h4>
             <h5 id="release-3"></h5>
             <div id="button-3"></div>
+          </div>
         </div>
       </div>
       <a class="carousel-control-prev" href="#upcomingCarousel" role="button" data-bs-slide="prev">
@@ -101,56 +101,53 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </a>
-      </div>
     </div>
   </div>
 
-    <div class="container series" data-aos="fade-up" data-aos-duration="500">
-      <div class="row">
-        <div class="col-md-10">
-            <h3 id="popular-movies-text">Popular Movies</h3>  
-        </div>
-        <div class="col-md-2">
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-            <li class="page-item active" id="popular_1"><a class="page-link" >1</a></li>
-            <li class="page-item" id="popular_2"><a class="page-link">2</a></li>
-            <li class="page-item" id="popular_3"><a class="page-link">3</a></li></ul>
-          </nav>
-        </div>  
+  <div class="container series" data-aos="fade-up" data-aos-duration="500">
+    <div class="row">
+      <div class="col-md-10">
+          <h3 id="popular-movies-text">Popular Movies</h3>  
       </div>
-      <div class="row movies"> </div>
-    </div> 
+      <div class="col-md-2">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+          <li class="page-item active" id="popular_1"><a class="page-link" >1</a></li>
+          <li class="page-item" id="popular_2"><a class="page-link">2</a></li>
+          <li class="page-item" id="popular_3"><a class="page-link">3</a></li></ul>
+        </nav>
+      </div>  
+    </div>
+    <div class="row movies"> </div>
+  </div>  
 
-    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-            <div class="series">
-              <div class="row">
-                <div class="col-md-5 col-sm-3">
-                  <div id="poster"></div>
-                </div> 
-                <div class="col-md-7 col-sm-8 info-layout">
-                  <h5 id="genre"></h5>
-                  <h2 id="title"></h2>
-                  <h6 id="rating"></h6>
-                  <h5 id="release"></h5>
-                  <h5 id="overview-text">Overview</h5>
-                  <h6 id="overview"></h6>
-                  <div id="more-info"></div>
-                </div> 
-              </div>
-            </div>           
-        </div>
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+          <div class="series">
+            <div class="row">
+              <div class="col-md-5 col-sm-3">
+                <div id="poster"></div>
+              </div> 
+              <div class="col-md-7 col-sm-8 info-layout">
+                <h5 id="genre"></h5>
+                <h2 id="title"></h2>
+                <h6 id="rating"></h6>
+                <h5 id="release"></h5>
+                <h5 id="overview-text">Overview</h5>
+                <h6 id="overview"></h6>
+                <div id="more-info"></div>
+              </div> 
+            </div>
+          </div>           
       </div>
-    </div> 
+    </div>
+  </div>   
 
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script> AOS.init(); </script>
+  <script src="script.js"></script>
 </body>
 
 <footer class="bg-dark text-white text-center text-lg-start">
@@ -207,7 +204,5 @@
     © 2020 - 2021 Copyright:
     <a>Desmond Koh Chye Ang</a>
   </div>
-
 </footer>
-
 </html>

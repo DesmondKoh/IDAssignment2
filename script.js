@@ -43,12 +43,8 @@ function loadMovie(){
     var page = $("#page").val(); 
     var currLoc = page - 1; 
 
-    if(page == 1){
-        $("#popular-movies-text").html("Popular Movies")
-    }
-    else{
-        $("#popular-movies-text").html("Popular Movies — " + page)
-    }
+    if(page == 1) $("#popular-movies-text").html("Popular Movies")
+    else $("#popular-movies-text").html("Popular Movies — " + page) 
 
     for(var i = currLoc * 3 + 1; i < currLoc * 3 + 4; i++){
         $.getJSON("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + i, function(data){
@@ -59,24 +55,18 @@ function loadMovie(){
                 var genre_id = [];    
                 var genre_name = [];
 
-                if(this.poster_path == null){
-                    poster_path = "'images/poster_not_available.png'"
-                }
-                else{
-                    poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
-                }
-
-                for( var i = 0; i < this.genre_ids.length; i++){
-                    genre_id.push(this.genre_ids[i])}
+                if(this.poster_path == null) poster_path = "'images/poster_not_available.png'"   
+                else poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
+                
+                for(var i = 0; i < this.genre_ids.length; i++)
+                    genre_id.push(this.genre_ids[i])
 
                 $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
                     $.each(data1.genres, function() {        
-                        for(var i = 0; i < genre_id.length; i++){
-                            if(genre_id[i] == this.id){  
-                                genre_name.push(" " + this.name);     
-                            }      
-                        }  
+                        for(var i = 0; i < genre_id.length; i++)
+                            if(genre_id[i] == this.id) genre_name.push(" " + this.name);        
                     }); 
+
                     $('.movies').append(`<div class="col-4 col-md-2">
                                         <div class="row">
                                             <img src=` + poster_path +` id="` + movie_id + `"> 
@@ -100,12 +90,8 @@ function showMovieDetail(id){
         var genre_name = [];
         var poster_path;
 
-        if(data.poster_path == null){
-            poster_path = "images/poster_not_available.png"
-        }
-        else{
-            poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
-        }
+        if(data.poster_path == null) poster_path = "images/poster_not_available.png"
+        else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
 
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name)  
@@ -190,9 +176,7 @@ $("#more-info").on("click", "button", function(){
 // | Code from https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
 $("#search").keypress(function(event) { 
     var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == "13") {
-        window.open("search.html?search=" + $('#search').val());
-    }
+    if (keycode == "13") window.open("search.html?search=" + $('#search').val());    
 });
 
 // | Search Button (Search Results)

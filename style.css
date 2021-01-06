@@ -275,7 +275,7 @@ footer{
 
 
 /* +------------------------
-   | Details Styling
+   | Movie Details Styling
    +------------------------ */
 
 .details-header{
@@ -307,7 +307,6 @@ footer{
     width: 200px;
     height: auto;
 }
-
 
 #details-release, #details-rating, #details-overview-text, #details-status, #details-runtime{
     color: whitesmoke;
@@ -346,6 +345,7 @@ footer{
     margin-bottom: 200px;
 }
 
+/* | Cast Styling */
 #cast-name{
     margin-top: 10px;
     color: white;
@@ -384,17 +384,40 @@ footer{
     color: white;
 }
 
-.from-bottom{
-    grid-column: 3/4;
-    transform: translateX(50%);
+
+
+/* +------------------------
+   | Reviews Styling
+   +------------------------ */
+
+.border{
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    border-width: thin;
+    padding: 50px;
+    margin: 20px;
 }
 
-.from-bottom{
-    transition: opacity 250ms ease-in, transform 400ms ease-in;
-    opacity: 0;
+#content{
+    font-weight: lighter;
 }
 
-.from-bottom{
-    transform: translateX(0);
-    opacity: 1;
+#avatar{
+    border-radius: 50%;
+    width: 55px;
+    margin-top: -15px;
+}
+
+#star{
+    width: 25px;
+    float: right;
+    margin-top: 2px;
+    
+}
+
+
+#i23{
+    color: white;
+
 }
