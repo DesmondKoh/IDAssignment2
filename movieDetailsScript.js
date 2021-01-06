@@ -6,6 +6,7 @@ $(document).ready(function(){
     showVideo(id);
     loadCasts(id);
     loadSimilarMovie(id);
+    showReviews(id);
     $(".view-more-text").hide();
     $(".view-less-text").hide();
 });
@@ -17,12 +18,10 @@ function checkURLParameter(){
             sParameterName,
             i;
     
-        for (i = 0; i < sURLVariables.length; i++) {
+        for (i = 0; i < sURLVariables.length; i++) 
             sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
+            if (sParameterName[0] === sParam)
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);          
     };
     var id = getUrlParameter("id");
     return id; 
@@ -50,12 +49,8 @@ function loadMovieDetail(id){
         var genre_name = [];
         var poster_path;
 
-        if(data.poster_path == null){
-            poster_path = "images/poster_not_available.png";
-        }
-        else{
-            poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
-        }
+        if(data.poster_path == null) poster_path = "images/poster_not_available.png";  
+        else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;  
 
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name);
@@ -97,12 +92,8 @@ function loadCasts(id){
         count = 1;
         $.each(data.cast, function() {  
             var profile_path;
-            if(this.profile_path == null){
-                profile_path = "'images/poster_not_available.png'"
-            }
-            else{
-                profile_path = "https://image.tmdb.org/t/p/original" + this.profile_path;
-            }
+            if(this.profile_path == null) profile_path = "'images/poster_not_available.png'"     
+            else profile_path = "https://image.tmdb.org/t/p/original" + this.profile_path;
 
             if(count < 13){
                 $('.casts').append(`<div class="col-4 col-md-2">
@@ -142,23 +133,16 @@ function loadSimilarMovie(id){
             var genre_id = [];    
             var genre_name = [];
 
-            if(this.poster_path == null){
-                poster_path = "'images/poster_not_available.png'"
-            }
-            else{
-                poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
-            }
-
-            for( var i = 0; i < this.genre_ids.length; i++){
-                genre_id.push(this.genre_ids[i])}
+            if(this.poster_path == null) poster_path = "'images/poster_not_available.png'"        
+            else poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
+            
+            for(var i = 0; i < this.genre_ids.length; i++)
+                genre_id.push(this.genre_ids[i])
 
             $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
                 $.each(data1.genres, function() {        
-                    for(var i = 0; i < genre_id.length; i++){
-                        if(genre_id[i] == this.id){  
-                            genre_name.push(" " + this.name);     
-                        }      
-                    }  
+                    for(var i = 0; i < genre_id.length; i++)
+                        if(genre_id[i] == this.id) genre_name.push(" " + this.name);                                  
                 }); 
                 $('.movies').append(`<div class="col-4 col-md-2">
                                     <div class="row">
@@ -181,12 +165,9 @@ function showMovieDetail(id){
         var genre_name = [];
         var poster_path;
 
-        if(data.poster_path == null){
-            poster_path = "images/poster_not_available.png"
-        }
-        else{
-            poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
-        }
+        if(data.poster_path == null) poster_path = "images/poster_not_available.png"    
+        else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
+        
 
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name)  
@@ -201,6 +182,68 @@ function showMovieDetail(id){
         $('#more-info').html('<button type="button" class="btn btn-outline-light" id="' + id + '">More info</button>');
     });
     $('#infoModal').modal('show');
+}
+
+// +------------------------
+// | Load Reviews
+// +------------------------
+function showReviews(id){
+    $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/reviews?api_key=" + api_key + "&language=en-US&page=1", function(data){
+        var count = 0;
+        $.each(data.results, function() {     
+            var username = this.author_details.username; 
+            var rating = this.author_details.rating; 
+            var avatar_path; 
+;
+            var content = this.content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+
+            if(this.author_details.avatar_path == null) avatar_path = "images/avatar.png"         
+            else if(this.author_details.avatar_path.substring(0,6) == "/https") 
+                avatar_path = this.author_details.avatar_path.substring(1);       
+            else avatar_path = "https://image.tmdb.org/t/p/w500" + this.author_details.avatar_path;
+            
+            $('.reviews').append(`<div class="col-md-6">
+                                <div class="row border">
+                                    <div class="col-md-2"> <img id="avatar" src="`+ avatar_path +`"></div>
+                                    <div class="col-md-10 left-margin">
+                                        <div class="row">
+                                            <div class="col-md-6"> <h5 id="details-release">`+ username +`</h5> </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-10 rating-star-`+ count +`">
+                                                    </div>
+                                                    <div class="col-md-1"> <h5 id="details-rating">`+ rating +`</h5> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr id="line">
+                                    <h6 id="content">`+ content +`</h6>
+                                </div>
+                            </div>`)
+
+
+            if(rating % 2 == 0){     
+                var star = rating/2;     
+                for(var i = 0; i < star; i++){  
+                    console.log(star) 
+                    $('.rating-star-' + count).prepend('<img id="star" src="images/star_full.png">')                                                                               
+                }
+            }
+            else{
+                var star = (rating-1)/2;     
+                for(var i = 0; i < star; i++){  
+                    console.log(star) 
+                    $('.rating-star-' + count).prepend('<img id="star" src="images/star_full.png">')                                                                               
+                }
+                $('.rating-star-' + count).prepend('<img id="star" src="images/star_half.png">')                                                                                
+            }        
+            count++;
+
+        });    
+    });
 }
 
 
@@ -237,9 +280,7 @@ $("#collapseCast").on("show.bs.collapse", function(){
 // | Code from https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
 $("#search").keypress(function(event) { 
     var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == "13") {
-        window.open("search.html?search=" + $('#search').val());
-    }
+    if (keycode == "13") window.open("search.html?search=" + $('#search').val());
 });
 
 // | Search Button (Search Results)
