@@ -35,7 +35,6 @@ function checkURLParameter(){
 function loadMovieDetail(id){
     $('#video').html('<img id="video-size" src="images/trailer_not_available.png" width="887" height="500">');
     var video = 0;
-
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data1){  
         var first_video = false;
         $.each(data1.results, function() {
@@ -44,13 +43,12 @@ function loadMovieDetail(id){
             return (first_video !== true)
         });
     });
-
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){  
         var genre_name = [];
         var poster_path;
 
-        if(data.poster_path == null) poster_path = "images/poster_not_available.png";  
-        else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;  
+        if(data.poster_path == null){ poster_path = "images/poster_not_available.png"; }
+        else{ poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path; }
 
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name);
@@ -65,6 +63,8 @@ function loadMovieDetail(id){
         $('#details-status').append(data.status);
         $('#details-runtime').append(data.runtime + " minutes");
         $('#details-overview').html(data.overview);
+
+        $("title").html(data.original_title + " – MovieHouse");
     });
 }
 
@@ -72,7 +72,6 @@ function loadMovieDetail(id){
 // +------------------------
 // | Show Trailer
 // +------------------------
-
 function showVideo(id){
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US", function(data){  
         var first_video = false;
@@ -93,7 +92,7 @@ function loadCasts(id){
         $.each(data.cast, function() {  
             var profile_path;
             if(this.profile_path == null) profile_path = "'images/poster_not_available.png'"     
-            else profile_path = "https://image.tmdb.org/t/p/original" + this.profile_path;
+            else profile_path = "https://image.tmdb.org/t/p/w500" + this.profile_path;
 
             if(count < 13){
                 $('.casts').append(`<div class="col-4 col-md-2">
@@ -104,6 +103,7 @@ function loadCasts(id){
                                     </div>
                                 </div> `)  
                 count++;
+
             }
             else{
                 $(".view-more-text").show();
@@ -125,41 +125,45 @@ function loadCasts(id){
 // | Load Similar Movies
 // +------------------------
 function loadSimilarMovie(id){
+    var count = 0;
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/similar?api_key=" + api_key + "&language=en-US&page=1", function(data){
-        $.each(data.results, function() {  
-            var poster_path;
-            var original_title = this.original_title;  
-            var movie_id = this.id;
-            var genre_id = [];    
-            var genre_name = [];
+        var count = 0;
+            $.each(data.results, function() { 
+                if(count < 12){ 
+                    var poster_path;
+                    var original_title = this.original_title;  
+                    var movie_id = this.id;
+                    var genre_id = [];    
+                    var genre_name = [];
 
-            if(this.poster_path == null) poster_path = "'images/poster_not_available.png'"        
-            else poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
-            
-            for(var i = 0; i < this.genre_ids.length; i++)
-                genre_id.push(this.genre_ids[i])
+                    if(this.poster_path == null) poster_path = "'images/poster_not_available.png'"        
+                    else poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
+                    
+                    for(var i = 0; i < this.genre_ids.length; i++)
+                        genre_id.push(this.genre_ids[i])
 
-            $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
-                $.each(data1.genres, function() {        
-                    for(var i = 0; i < genre_id.length; i++)
-                        if(genre_id[i] == this.id) genre_name.push(" " + this.name);                                  
-                }); 
-                $('.movies').append(`<div class="col-4 col-md-2">
-                                    <div class="row">
-                                        <img src=` + poster_path +` id="` + movie_id + `"> 
-                                        <h6>` + original_title + `</h6>
-                                        <h4>` +  genre_name + `</h4>
-                                    </div>
-                                </div> `)   
+                    $.getJSON("https://api.themoviedb.org/3/genre/movie/list?api_key=" + api_key + "&language=en-US", function(data1){
+                        $.each(data1.genres, function() {        
+                            for(var i = 0; i < genre_id.length; i++)
+                                if(genre_id[i] == this.id) genre_name.push(" " + this.name);                                  
+                        }); 
+                        $('.movies').append(`<div class="col-4 col-md-2">
+                                            <div class="row">
+                                                <img src=` + poster_path +` id="` + movie_id + `"> 
+                                                <h6>` + original_title + `</h6>
+                                                <h4>` +  genre_name + `</h4>
+                                            </div>
+                                        </div> `)   
+                    });
+                }
+                count++;
             });
-        });
     })          
 }
 
 // +------------------------
 // | Show Movie Details
 // +------------------------
-
 function showMovieDetail(id){
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key + "&language=en-US", function(data){  
         var genre_name = [];
@@ -168,7 +172,6 @@ function showMovieDetail(id){
         if(data.poster_path == null) poster_path = "images/poster_not_available.png"    
         else poster_path = "https://image.tmdb.org/t/p/w500" + data.poster_path;
         
-
         $.each(data.genres, function() {     
             genre_name.push(" " + this.name)  
         }); 
@@ -189,24 +192,21 @@ function showMovieDetail(id){
 // +------------------------
 function showReviews(id){
     $.getJSON("https://api.themoviedb.org/3/movie/" + id + "/reviews?api_key=" + api_key + "&language=en-US&page=1", function(data){
-        var count = 0;
+        var count = 0;   
         $.each(data.results, function() {     
             var username = this.author_details.username; 
-            var rating = this.author_details.rating; 
+            var rating = this.author_details.rating;
             var avatar_path; 
-;
             var content = this.content.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
 
             if(this.author_details.avatar_path == null) avatar_path = "images/avatar.png"         
             else if(this.author_details.avatar_path.substring(0,6) == "/https") 
                 avatar_path = this.author_details.avatar_path.substring(1);       
             else avatar_path = "https://image.tmdb.org/t/p/w500" + this.author_details.avatar_path;
             
-            $('.reviews').append(`<div class="col-md-6">
-                                <div class="row border">
-                                    <div class="col-md-2"> <img id="avatar" src="`+ avatar_path +`"></div>
-                                    <div class="col-md-10 left-margin">
+            $('.reviews').append(`<div class="row border">
+                                    <div class="col-md-1"> <img id="avatar" src="`+ avatar_path +`"></div>
+                                    <div class="col-md-11 left-margin">
                                         <div class="row">
                                             <div class="col-md-6"> <h5 id="details-release">`+ username +`</h5> </div>
                                             <div class="col-md-6">
@@ -219,11 +219,9 @@ function showReviews(id){
                                             </div>
                                         </div>
                                     </div>
-                                    <hr id="line">
-                                    <h6 id="content">`+ content +`</h6>
-                                </div>
-                            </div>`)
-
+                                    <hr id="line">                                   
+                                    <h6 id="content">`+ content +`</h6>                            
+                                </div> `)
 
             if(rating % 2 == 0){     
                 var star = rating/2;     
@@ -241,7 +239,6 @@ function showReviews(id){
                 $('.rating-star-' + count).prepend('<img id="star" src="images/star_half.png">')                                                                                
             }        
             count++;
-
         });    
     });
 }
