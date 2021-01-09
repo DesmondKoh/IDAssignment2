@@ -24,13 +24,14 @@ function checkURLParameter(){
     };
     var search = getUrlParameter("search");
     $("#search").val(search); 
+
+    $("title").html(search + " – MovieHouse");
 }
 
 
 // +------------------------
 // | Search Movies
 // +------------------------
-
 function searchMovie(){ 
     $("#search").keyup(function() {
         var search = $('#search').val();
@@ -70,6 +71,7 @@ function searchMovie(){
                 });
             })
         }
+        $("title").html(search + " – MovieHouse");
     }).keyup();
 }
 
