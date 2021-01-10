@@ -3,20 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MovieHouse</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="responsive.css" rel="stylesheet" type="text/css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>MovieHouse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="responsive.css" rel="stylesheet" type="text/css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
 <header>
   <input type="hidden" id="page" value="1">
+
+<!-- Navigation Bar -->
   <div class="container fixed-top">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -42,17 +45,21 @@
       </div>
     </nav>
   </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>NEVER <span>MISS</span> A MOVIE</h1>
-                <h4>Explore the latest available movie here. </h4>
-                <button type="button" class="btn btn-outline-light" id="header_button">Start Browsing</button>
-            </div>     
-        </div>
-    </div>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <h1>NEVER <span>MISS</span> A MOVIE</h1>
+              <h4>Explore the latest available movie here. </h4>
+              <button type="button" class="btn btn-outline-light" id="header_button">Start Browsing</button>
+          </div>     
+      </div>
+  </div>
 </header>
+
 <body>
+
+<!-- Latest Movies Carousel -->  
   <div class="container series" data-aos="fade-up">
     <h3 id="latest_text">Latest Movies</h3>
     <div id="upcomingCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -104,6 +111,7 @@
     </div>
   </div>
 
+<!-- Popular Movies -->
   <div class="container series" data-aos="fade-up" data-aos-duration="500">
     <div class="row">
       <div class="col-md-10">
@@ -121,6 +129,7 @@
     <div class="row movies"> </div>
   </div>  
 
+<!-- Movie Details Modal -->
   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
@@ -144,12 +153,12 @@
     </div>
   </div>   
 
-
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script> AOS.init(); </script>
   <script src="script.js"></script>
 </body>
 
+<!-- Footer -->
 <footer class="bg-dark text-white text-center text-lg-start">
   <div class="container p-4">
     <div class="row">
@@ -159,43 +168,20 @@
               <path fill-rule="evenodd" d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0h8v6H4V1zm8 8H4v6h8V9zM1 1h2v2H1V1zm2 3H1v2h2V4zM1 7h2v2H1V7zm2 3H1v2h2v-2zm-2 3h2v2H1v-2zM15 1h-2v2h2V1zm-2 3h2v2h-2V4zm2 3h-2v2h2V7zm-2 3h2v2h-2v-2zm2 3h-2v2h2v-2z"/>
           </svg> House
         </h5>
-        <p>
-        </p>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Webpages</h5>
-
         <ul class="list-unstyled mb-0">
-          <li>
-            <a href="index.html" class="text-white">Home</a>
-          </li>
-          <li>
-            <a href="search.html" class="text-white">Search</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
+          <li> <a href="index.html" class="text-white">Home</a> </li>
+          <li> <a href="search.html" class="text-white">Search</a> </li>
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">Links</h5>
-
+        <h5 class="text-uppercase">Featured</h5>
         <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-white">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
+          <li> <a href="#!" class="text-white">Latest Movies</a> </li>
+          <li> <a href="#!" class="text-white">Popular Movies</a> </li>
+          <li> <a href="#!" class="text-white">Movie Details</a> </li>
         </ul>
       </div>
     </div>

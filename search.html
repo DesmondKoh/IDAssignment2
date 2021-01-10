@@ -15,8 +15,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <header>
   <input type="hidden" id="page" value="search">
+
+<!-- Navigation Bar -->
   <div class="container fixed-top">
     <nav class="navbar navbar-expand-lg bg-search">
       <div class="container-fluid">
@@ -42,48 +45,51 @@
     </nav>
   </div>
 </header>
+
 <body>
-  
-    <div class="container series">
-      <div class="row">
-        <div class="col-md-7 col-sm-12">
-          <div id="results"></div>
-        </div> 
+
+<!-- Search Results -->
+  <div class="container series">
+    <div class="row">
+      <div class="col-md-7 col-sm-12">
+        <div id="results"></div>
+      </div> 
+    </div>
+    <div class="row movies" ></div>
+  </div> 
+
+<!-- Movie Details -->
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+          <div class="series">
+            <div class="row">
+              <div class="col-md-5 col-sm-3">
+                <div id="poster"></div>
+              </div> 
+              <div class="col-md-7 col-sm-8 info-layout">
+                <h5 id="genre"></h5>
+                <h2 id="title"></h2>
+                <h6 id="rating"></h6>
+                <h5 id="release"></h5>
+                <h5 id="overview-text">Overview</h5>
+                <h6 id="overview"></h6>
+                <div id="more-info"></div>
+              </div> 
+            </div>
+          </div>           
       </div>
+    </div>
+  </div> 
 
-      <div class="row movies" ></div>
-    </div> 
-
-    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-            <div class="series">
-              <div class="row">
-                <div class="col-md-5 col-sm-3">
-                  <div id="poster"></div>
-                </div> 
-                <div class="col-md-7 col-sm-8 info-layout">
-                  <h5 id="genre"></h5>
-                  <h2 id="title"></h2>
-                  <h6 id="rating"></h6>
-                  <h5 id="release"></h5>
-                  <h5 id="overview-text">Overview</h5>
-                  <h6 id="overview"></h6>
-                  <div id="more-info"></div>
-                </div> 
-              </div>
-            </div>           
-        </div>
-      </div>
-    </div> 
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="search.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="search.js"></script>
 </body>
 
+<!-- Footer -->
 <footer class="bg-dark text-white text-center text-lg-start">
   <div class="container p-4">
     <div class="row">
@@ -93,50 +99,27 @@
               <path fill-rule="evenodd" d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0h8v6H4V1zm8 8H4v6h8V9zM1 1h2v2H1V1zm2 3H1v2h2V4zM1 7h2v2H1V7zm2 3H1v2h2v-2zm-2 3h2v2H1v-2zM15 1h-2v2h2V1zm-2 3h2v2h-2V4zm2 3h-2v2h2V7zm-2 3h2v2h-2v-2zm2 3h-2v2h2v-2z"/>
           </svg> House
         </h5>
-        <p>
-          
-        </p>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Webpages</h5>
-
         <ul class="list-unstyled mb-0">
-          <li>
-            <a href="index.html" class="text-white">Home</a>
-          </li>
-          <li>
-            <a href="search.html" class="text-white">Search</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
+          <li> <a href="index.html" class="text-white">Home</a> </li>
+          <li> <a href="search.html" class="text-white">Search</a> </li>
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">Links</h5>
+        <h5 class="text-uppercase">Featured</h5>
         <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-white">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
+          <li> <a href="#!" class="text-white">Latest Movies</a> </li>
+          <li> <a href="#!" class="text-white">Popular Movies</a> </li>
+          <li> <a href="#!" class="text-white">Movie Details</a> </li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="text-center p-3" style="background-color: rgb(26, 26, 26)">
-    © 2020 Copyright: <a>Desmond Koh Chye Ang</a>
+  <div class="text-center p-3" style="background-color: rgb(32, 32, 32)">
+    © 2020 - 2021 Copyright:
+    <a>Desmond Koh Chye Ang</a>
   </div>
 </footer>
-
 </html>
