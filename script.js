@@ -5,7 +5,6 @@ $(document).ready(function() {
     loadMovie();
 });
 
-
 // +------------------------
 // | Load "Latest" Movies
 // +------------------------
@@ -34,7 +33,6 @@ function loadUpcoming(){
         });               
     })
 }
-
 
 // +------------------------
 // | Load "Popular" Movies
@@ -80,7 +78,6 @@ function loadMovie(){
     }    
 }
 
-
 // +------------------------
 // | Show Movie Details
 // +------------------------
@@ -111,7 +108,6 @@ function showMovieDetail(id){
 // +------------------------
 // | Element Clicks
 // +------------------------
-
 // | View More Button (Latest Movies)
 $("#button-1").on("click", "button", function(){  
     var id = $("#box-1 button").attr("id");
@@ -171,7 +167,6 @@ $("#more-info").on("click", "button", function(){
 // +------------------------
 // | Others
 // +------------------------
-
 // | Redirect to search page on "Enter" 
 // | Code from https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
 $("#search").keypress(function(event) { 

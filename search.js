@@ -5,7 +5,6 @@ $(document).ready(function(){
     searchMovie();
 });
 
-
 // +---------------------------
 // | Check for Search Parameter
 // +---------------------------
@@ -27,7 +26,6 @@ function checkURLParameter(){
 
     $("title").html(search + " – MovieHouse");
 }
-
 
 // +------------------------
 // | Search Movies
@@ -75,7 +73,6 @@ function searchMovie(){
     }).keyup();
 }
 
-
 // +------------------------
 // | Show Movie Details
 // +------------------------
@@ -103,7 +100,6 @@ function showMovieDetail(id){
     $('#infoModal').modal('show');
 }
 
-
 // +------------------------
 // | Element Clicks
 // +------------------------
@@ -118,7 +114,6 @@ $("#more-info").on("click", "button", function(){
     var id = $(".modal button").attr("id");
     window.open("movieDetails.html?id=" + id);
 });
-    
 
 // +------------------------
 // | Others

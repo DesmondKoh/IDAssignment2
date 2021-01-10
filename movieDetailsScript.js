@@ -27,11 +27,9 @@ function checkURLParameter(){
     return id; 
 }
 
-
 // +------------------------
 // | Load Movie Details
 // +------------------------
-
 function loadMovieDetail(id){
     $('#video').html('<img id="video-size" src="images/trailer_not_available.png" width="887" height="500">');
     var video = 0;
@@ -67,7 +65,6 @@ function loadMovieDetail(id){
         $("title").html(data.original_title + " – MovieHouse");
     });
 }
-
 
 // +------------------------
 // | Show Trailer
@@ -247,7 +244,6 @@ function showReviews(id){
 // +------------------------
 // | Element Clicks
 // +------------------------
-
 // | Image Button (Search Results)
 $(".series").on("click", "img", function(){ 
     showMovieDetail(this.id);
@@ -269,10 +265,10 @@ $("#collapseCast").on("show.bs.collapse", function(){
     $(".view-more-text").hide();
 })
 
+
 // +------------------------
 // | Others
 // +------------------------
-
 // | Redirect to search page on "Enter" 
 // | Code from https://www.c-sharpcorner.com/blogs/how-to-disable-enter-key-using-jquery1
 $("#search").keypress(function(event) { 
